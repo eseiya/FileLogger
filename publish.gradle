@@ -1,12 +1,3 @@
-apply plugin: 'maven-publish'
-apply plugin: 'com.jfrog.bintray'
-
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-version = PROJ_VERSION
-group = PROJ_GROUP
-
 /*
  * Copyright (C) 2020 AndyZheng.
  *
@@ -22,6 +13,15 @@ group = PROJ_GROUP
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+version = PROJ_VERSION
+group = PROJ_GROUP
 
 //============artifacts===============
 if (project.hasProperty("android")) { // Android libraries
@@ -113,7 +113,6 @@ bintray {
     key = properties.getProperty("bintray.apikey")
     publications = ['Production']
     configurations = ['archives']
-    override = true
     pkg {
         repo = BINTRAY_REPO
         licenses = ['Apache-2.0']

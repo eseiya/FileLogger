@@ -61,5 +61,5 @@ LogUtil.va("format %s test", "2");
 ###### 引入组件
 
 ```groovy
-implementation "com.eseiya.filelogger:filelogger:1.0.0"
+implementation "com.eseiya.filelogger:logger:1.0.0"
 ```
